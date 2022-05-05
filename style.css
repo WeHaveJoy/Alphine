@@ -1,8 +1,12 @@
+body{
+  background-color:yellow;
+}
+
 .container {
     display: grid;
     gap: 50px 100px;
     grid-template-columns: auto auto auto;
-    background-color:yellow;
+   
     padding: 10px;
   }
   .row {
@@ -12,4 +16,8 @@
     font-size: 30px;
     text-align: center;
     color: yellow;
+  }
+
+  .heading{
+    text-align: center;
   }
