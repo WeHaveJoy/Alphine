@@ -2,13 +2,14 @@
     display: grid;
     gap: 50px 100px;
     grid-template-columns: auto auto auto;
-    background-color: aquamarine;
+    background-color:yellow;
     padding: 10px;
   }
   .row {
-    background-color: darkcyan;
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: black;
+    border: 1px solid yellow(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    color: yellow;
   }

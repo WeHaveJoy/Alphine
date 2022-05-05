@@ -51,24 +51,50 @@
             <div x-ref="sentence">This widget counts down from 60 seconds, 
                 and stops when you click the stop button:</div>
 <br>
-            <div x-data="{ countdown: 60 }"
-            x-init="setInterval(function(){
-                countdown--
-                         if(countdown == 0){
-                            countdown.stop();
-                         }
-                    }, 1000); ">
+            <div x-data="{ countdown: 60,
+                            interval: null,
+                            current: null,
+                            stop: false,
+                            reset: false,
+                            start:null
+                         }"
+
+            x-init="interval = setInterval(function(){
+                if(countdown == 0){
+                    countdown.stop();
+                 }
+                 countdown--
+            }, 1000); ">
            <h1 x-text="countdown"></h1>
 
-           <div x-data="{ stop: true }"
-           x-init="function myStopFunction() {
-            clearInterval(myInterval);
-           } ">
-           <button @click="stop=!stop">Stop</button>
-           <div x-stop="stop"></div>
-           </div>
+           <!-- <div x-data="{ stop: true  }">  -->
+            <div x-show="stop"></div>
+            <button @click="clearInterval(interval);">Stop</button>
+       
+
+        <div x-show="!start">
+            <button @click=" start = Date.now()
+                            current = start
+                            stop = true
+                            interval = setInterval(function(){
+                                if(countdown == 0){
+                                    countdown.stop();
+                                 }
+                                countdown--;},1000);">Start</button>
+        </div> 
+
+        <div x-show="!reset">
+            <button @click=" 
+            stop = null,
+            start = null,
+            reset = false,
+            countdown = 60;
+            ;">Reset</button>
+        </div> 
+
+        </div> 
        </div>
-          </div>
+        
 
           <div class="row">
             <div x-ref="sentence">This widget shows and hides the word:</div>
